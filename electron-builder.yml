@@ -1,0 +1,38 @@
+appId: com.darkscribe.app
+productName: Darkscribe
+copyright: Copyright © 2026 Darkscribe
+
+directories:
+  buildResources: build
+  output: dist
+  app: .
+
+files:
+  - out/**/*
+  - "!**/{.DS_Store,.git,.gitkeep,.gitignore,.npmignore}"
+  - "!swift/**/*"
+  - "!swift"
+
+extraResources:
+  - from: resources/AudioCapture
+    to: AudioCapture
+
+mac:
+  target:
+    - target: dir
+      arch: arm64
+    - target: dmg
+      arch: arm64
+  minimumSystemVersion: "13.0"
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  category: public.app-category.productivity
+
+dmg:
+  title: Darkscribe
+  icon: build/icon.icns
+
+nsis:
+  oneClick: false

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+out/
+dist/
+
+# Swift build artifacts
+swift/AudioCapture/.build/
+
+# Compiled AudioCapture binary (built via npm run build:swift)
+resources/AudioCapture
+
+# macOS
+.DS_Store
+*.dmg
+
+# Encrypted keys
+*.enc
+
+# Logs
+*.log
+firebase-debug.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary
+/tmp/
+*.tmp
+
+# Environment
+.env
+.env.local

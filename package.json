@@ -1,0 +1,40 @@
+{
+  "name": "darkscribe",
+  "version": "0.1.0",
+  "description": "Call transcription and note-taking with Obsidian vault storage",
+  "main": "./out/main/index.js",
+  "author": "Darkscribe",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "build:swift": "cd swift/AudioCapture && swift build -c release && mkdir -p ../../resources && cp .build/release/AudioCapture ../../resources/AudioCapture",
+    "preview": "electron-vite preview",
+    "package": "npm run build && npm run build:swift && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@tavily/core": "^0.7.2",
+    "openai": "^4.67.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.6.0",
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/ws": "^8.5.12",
+    "@vitejs/plugin-react": "^4.3.2",
+    "concurrently": "^9.0.1",
+    "electron": "^34.5.8",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^5.0.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
+  }
+}
