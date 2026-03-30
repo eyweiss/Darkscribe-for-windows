@@ -133,7 +133,7 @@ ${langNote}${vocabNote}`
     // - System: shorter silence tolerance (break up continuous remote speech faster)
     const vadConfig = this.channel === 'sys'
       ? { type: 'server_vad' as const, threshold: 0.3, prefix_padding_ms: 300, silence_duration_ms: 400 }
-      : { type: 'server_vad' as const, threshold: 0.45, prefix_padding_ms: 500, silence_duration_ms: 800 }
+      : { type: 'server_vad' as const, threshold: 0.45, prefix_padding_ms: 500, silence_duration_ms: 450 }
 
     this.send({
       type: 'session.update',
@@ -166,7 +166,7 @@ ${langNote}${vocabNote}`
         // Capture the speech start time for the NEXT segment
         this.speechStartTime = Date.now()
       }
-    }, 8000) // Force commit every 8 seconds
+    }, 3000) // Force commit every 3 seconds
   }
 
   private stopPeriodicCommit(): void {
